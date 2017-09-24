@@ -35,14 +35,6 @@ body :global .ant-menu li{
   text-align: left;
 }
 
-/*body :global .ant-menu .ant-menu-item > a {*/
-  /*font-family: PingFangSC-Regular;*/
-  /*font-size: 14px;*/
-  /*color: #FFFFFF;*/
-  /*letter-spacing: 0;*/
-  /*font-weight: 300;*/
-/*}*/
-
 body :global .ant-menu .ant-menu-item > a i{
   padding: 8px;
   background: transparent;
@@ -90,13 +82,9 @@ body :global button.ant-btn:hover,
 body :global button.ant-btn:focus,
 body :global button.ant-btn:active,
 body :global button.ant-btn.active {
-  background: #35C89B;
-  border-radius: 73px;
-  color: #fff;
-  width: 140px;
-  height: 44px;
-  margin-top: 30px;
-  border: transparent;
+  border-radius: 5px;
+  padding: 5px 20px;
+  height: 35px;
 }
 
 body :global button.ant-btn.disabled, body :global button.ant-btn[disabled],
@@ -178,4 +166,12 @@ body :global .ant-dropdown-menu-submenu-title-selected > a {
 body :global .ant-dropdown {
   top: 75px !important;
   min-width: 180px;
+}
+
+body :global .ant-input {
+  height: 35px;
+}
+
+body :global .ant-table-tbody > tr .column {
+  padding: 15px 10px;
 }

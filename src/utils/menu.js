@@ -5,43 +5,43 @@ module.exports = [
     icon: 'setting',
     child: [
       {
-        key: '1',
-        name: '设置一'
+        key: 'course',
+        name: '课程设置'
       },
       {
-        key: '2',
-        name: '设置二'
+        key: 'class',
+        name: '班级设置'
       },
       {
-        key: '3',
-        name: '设置三'
+        key: 'jobs',
+        name: '职业设置'
       },
       {
-        key: '4',
-        name: '设置四'
+        key: 'account',
+        name: '账号管理'
       }
     ]
   },
   {
-    key: 'student-setting',
+    key: 'student-manage',
     name: '学生管理',
-    icon: 'setting',
+    icon: 'team',
     child: [
       {
-        key: '1',
-        name: '设置一'
+        key: 'import-output',
+        name: '录入导出'
       },
       {
-        key: '2',
-        name: '设置二'
+        key: 'info-manage',
+        name: '信息维护'
       },
       {
-        key: '3',
-        name: '设置三'
+        key: 'consume-manage',
+        name: '缴费管理'
       },
       {
-        key: '4',
-        name: '设置四'
+        key: 'attendance-manage',
+        name: '考勤管理'
       }
     ]
   },

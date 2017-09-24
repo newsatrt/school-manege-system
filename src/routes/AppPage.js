@@ -7,7 +7,6 @@ import Header from '../components/Layout/Header'
 import Footer from '../components/Layout/Footer'
 import styles from './AppPage.css';
 
-
 function App({children, location, dispatch, app}) {
   const {user, collapsed, isNavbar, menuPopoverVisible, navOpenKeys} = app
 

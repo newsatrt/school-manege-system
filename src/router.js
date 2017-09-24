@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router } from 'dva/router'
+import {Router} from 'dva/router'
 import App from './routes/AppPage'
 
 const cached = {}
@@ -10,90 +10,7 @@ function registerModel(app, model) {
   }
 }
 
-function RouterConfig({ history, app }) {
-  // const routes = [
-  //   {
-  //     path: '/',
-  //     name: 'AppPage',
-  //     getComponent(nextState, cb) {
-  //       require.ensure([], (require) => {
-  //         cb(null, require('./routes/AppPage'))
-  //       }, 'AppPage')
-  //     },
-  //     childRoutes: [
-  //       {
-  //         path: 'daily',
-  //         name: 'DailyPage',
-  //         getComponent(nextState, cb) {
-  //           require.ensure([], (require) => {
-  //             registerModel(app, require('./models/syllabus'))
-  //             cb(null, require('./routes/SyllabusDaily'))
-  //           }, 'DailyPage')
-  //         }
-  //       },
-  //       {
-  //         path: 'daily-student',
-  //         name: 'StudentDailyPage',
-  //         getComponent(nextState, cb) {
-  //           require.ensure([], (require) => {
-  //             registerModel(app, require('./models/syllabus'))
-  //             cb(null, require('./routes/StudentSyllabusDaily'))
-  //           }, 'StudentDailyPage')
-  //         }
-  //       },
-  //       {
-  //         path: 'month',
-  //         name: 'MonthPage',
-  //         getComponent(nextState, cb) {
-  //           require.ensure([], (require) => {
-  //             registerModel(app, require('./models/syllabus'))
-  //             cb(null, require('./routes/SyllabusMonth'))
-  //           }, 'MonthPage')
-  //         }
-  //       },
-  //       {
-  //         path: 'class-detail',
-  //         name: 'ClassDetailPage',
-  //         getComponent(nextState, cb) {
-  //           require.ensure([], (require) => {
-  //             registerModel(app, require('./models/syllabus'))
-  //             cb(null, require('./routes/ClassDetail'))
-  //           }, 'ClassDetailPage')
-  //         }
-  //       },
-  //       {
-  //         path: 'user',
-  //         name: 'UserPage',
-  //         getComponent(nextState, cb) {
-  //           require.ensure([], (require) => {
-  //             registerModel(app, require('./models/user'))
-  //             cb(null, require('./routes/MyCenter'))
-  //           }, 'UserPage')
-  //         }
-  //       },
-  //       // {
-  //       //   path: 'eq-test',
-  //       //   name: 'EqTestPage',
-  //       //   getComponent(nextState, cb) {
-  //       //     require.ensure([], (require) => {
-  //       //       registerModel(app, require('./models/eqtest'))
-  //       //       cb(null, require('./routes/EqTest'))
-  //       //     }, 'EqTestPage')
-  //       //   }
-  //       // }
-  //     ]
-  //   },
-  //   {
-  //     path: '/login',
-  //     name: 'LoginPage',
-  //     getComponent(nextState, cb) {
-  //       require.ensure([], (require) => {
-  //         cb(null, require('./routes/Login'))
-  //       }, 'LoginPage')
-  //     }
-  //   }
-  // ]
-
+function RouterConfig({history, app}) {
   const routes = [
     {
       path: '/',
@@ -101,10 +18,45 @@ function RouterConfig({ history, app }) {
       childRoutes: [
         {
           path: 'school-setting',
-          childRoutes:
-            [
+          childRoutes: [
+            {
+              path: 'course',
+              name: 'CoursePage',
+              getComponent(nextState, cb) {
+                require.ensure([], (require) => {
+                  registerModel(app, require('./models/course'))
+                  cb(null, require('./routes/SchoolSetting/Course'))
+                }, 'CoursePage')
+              }
+            },
+            {
+              path: 'class',
+              name: 'ClassPage',
+              getComponent(nextState, cb) {
+                require.ensure([], (require) => {
+                  registerModel(app, require('./models/classes'))
+                  cb(null, require('./routes/SchoolSetting/Class'))
+                }, 'ClassPage')
+              }
+            }
+          ]
+        },
+        {
+          path: 'student-manage',
+          childRoutes: [
+            {
+              path:'import-output',
+              name:'ImportOutputPage',
+              getComponent(nextState, cb) {
+                require.ensure([], (require) => {
+                  registerModel(app, require('./models/students'))
+                  cb(null, require('./routes/StudentManage/ImportOutput'))
+                }, 'ImportOutputPage')
+              }
 
-            ]
+            }
+
+          ]
         }
       ]
 
@@ -120,7 +72,7 @@ function RouterConfig({ history, app }) {
     }
   ];
 
-  return <Router history={history} routes={routes} />
+  return <Router history={history} routes={routes}/>
 }
 
 export default RouterConfig
